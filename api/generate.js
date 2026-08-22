@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
     const objetivoFinal = objetivo || "Vender";
 
-    const titulo = `Descubrí cómo empezar con ${producto}`;
+    
 const titulo = `✨ ${producto}: ideas, consejos y guía para empezar`;
 
 const descripcion =
