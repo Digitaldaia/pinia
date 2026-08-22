@@ -17,24 +17,34 @@ export default async function handler(req, res) {
     const objetivoFinal = objetivo || "Vender";
 
     const titulo = `Descubrí cómo empezar con ${producto}`;
+const titulo = `✨ ${producto}: ideas, consejos y guía para empezar`;
 
-    const descripcion =
-      `Una forma simple y práctica de descubrir todo lo que ${producto} puede ayudarte a conseguir. Conocé más y empezá hoy.`;
+const descripcion =
+  `Descubrí todo lo que necesitás saber sobre ${producto}. ` +
+  `Encontrá ideas prácticas, consejos útiles y recursos para empezar ` +
+  `de forma sencilla. Guardá este Pin y descubrí cómo aprovechar ${producto}.`;
 
-    const palabrasClave = [
-      producto,
-      "guía",
-      "ideas",
-      "recursos",
-      "aprender",
-      "consejos"
-    ];
+const palabrasClave = [
+  producto,
+  `${producto} para principiantes`,
+  `ideas de ${producto}`,
+  `cómo empezar con ${producto}`,
+  `guía de ${producto}`,
+  `consejos de ${producto}`,
+  `aprender ${producto}`,
+  `recursos de ${producto}`,
+  `tutorial de ${producto}`
+];
 
-    const cta = "Conocé más y descubrí cómo empezar.";
+const cta =
+  "👉 Descubrí la guía completa y empezá hoy.";
 
-    const ideaVisual =
-      `Crear una imagen vertical, limpia y profesional relacionada con ${producto}, utilizando un título corto y llamativo.`;
-
+const ideaVisual =
+  `Crear un Pin vertical de alta conversión para Pinterest sobre ${producto}. ` +
+  `Usar una fotografía realista y profesional relacionada directamente con el producto, ` +
+  `composición limpia, iluminación clara y natural, alto contraste, estética premium ` +
+  `y un título visual corto que genere curiosidad. ` +
+  `Mostrar claramente el beneficio principal de ${producto} y evitar exceso de texto.`;
     return res.status(200).json({
       objetivo: objetivoFinal,
       titulo,
