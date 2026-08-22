@@ -25,15 +25,23 @@ const descripcion =
   `de forma sencilla. Guardá este Pin y descubrí cómo aprovechar ${producto}.`;
 
 const palabrasClave = [
-  producto,
-  `${producto} para principiantes`,
-  `ideas de ${producto}`,
-  `cómo empezar con ${producto}`,
-  `guía de ${producto}`,
-  `consejos de ${producto}`,
-  `aprender ${producto}`,
-  `recursos de ${producto}`,
-  `tutorial de ${producto}`
+const productoBase = producto
+  .replace(/ebook\s+de\s+/i, "")
+  .replace(/curso\s+de\s+/i, "")
+  .replace(/guía\s+de\s+/i, "")
+  .replace(/para\s+principiantes/gi, "")
+  .trim();
+
+const palabrasClave = [
+  productoBase,
+  `${productoBase} para principiantes`,
+  `aprender ${productoBase} desde cero`,
+  `cómo empezar con ${productoBase}`,
+  `ideas de ${productoBase}`,
+  `guía paso a paso de ${productoBase}`,
+  `proyectos fáciles de ${productoBase}`,
+  `consejos para aprender ${productoBase}`,
+  `tutorial de ${productoBase}`
 ];
 
 const cta =
