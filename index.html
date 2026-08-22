@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PINIA — Generador para Pinterest</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f4ef;
+      color: #211d1d;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .logo {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: #6d6662;
+      font-size: 17px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    textarea,
+    select {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      background: white;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      background: #e85b3f;
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .result {
+      display: none;
+    }
+
+    .result h2 {
+      margin-bottom: 20px;
+    }
+
+    .result-box {
+      background: #f7f4ef;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .result-box strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="logo">PINIA</div>
+      <div class="subtitle">
+        Tu asistente para crear contenido estratégico para Pinterest.
+      </div>
+    </div>
+
+    <div class="card">
+
+      <label for="producto">
+        ¿Qué querés promocionar?
+      </label>
+
+      <textarea
+        id="producto"
+        placeholder="Ejemplo: ebook para aprender crochet desde cero"
+      ></textarea>
+
+      <label for="objetivo">
+        Objetivo
+      </label>
+
+      <select id="objetivo">
+        <option value="vender">Vender</option>
+        <option value="trafico">Generar tráfico</option>
+        <option value="seguidores">Conseguir seguidores</option>
+        <option value="visibilidad">Aumentar visibilidad</option>
+      </select>
+
+      <button onclick="generarContenido()">
+        Generar contenido PINIA
+      </button>
+
+    </div>
+
+    <div class="card result" id="resultado">
+
+      <h2>Tu propuesta PINIA</h2>
+
+      <div class="result-box">
+        <strong>Título del Pin</strong>
+        <span id="titulo"></span>
+      </div>
+
+      <div class="result-box">
+        <strong>Descripción</strong>
+        <span id="descripcion"></span>
+      </div>
+
+      <div class="result-box">
+        <strong>Palabras clave</strong>
+        <span id="keywords"></span>
+      </div>
+
+      <div class="result-box">
+        <strong>CTA</strong>
+        <span id="cta"></span>
+      </div>
+
+      <div class="result-box">
+        <strong>Idea visual</strong>
+        <span id="visual"></span>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      PINIA — Primera versión
+    </div>
+
+  </div>
+
+  <script>
+
+    function generarContenido() {
+
+      const producto = document.getElementById("producto").value.trim();
+      const objetivo = document.getElementById("objetivo").value;
+
+      if (!producto) {
+        alert("Primero escribí qué querés promocionar.");
+        return;
+      }
+
+      let titulo = "";
+      let descripcion = "";
+      let keywords = "";
+      let cta = "";
+
+      if (objetivo === "vender") {
+
+        titulo = "Descubrí cómo empezar con " + producto;
+
+        descripcion =
+          "Una forma simple y práctica de descubrir todo lo que " +
+          producto +
+          " puede ayudarte a conseguir. Conocé más y empezá hoy.";
+
+        keywords =
+          producto + ", guía, ideas, recursos, aprender, consejos";
+
+        cta =
+          "Conocé más y descubrí cómo empezar.";
+
+      } else if (objetivo === "trafico") {
+
+        titulo =
+          "Todo lo que necesitás saber sobre " + producto;
+
+        descripcion =
+          "Encontrá ideas, consejos y recursos útiles relacionados con " +
+          producto +
+          ". Visitá el contenido completo para conocer todos los detalles.";
+
+        keywords =
+          producto + ", información, consejos, ideas, guía";
+
+        cta =
+          "Entrá y descubrí el contenido completo.";
+
+      } else if (objetivo === "seguidores") {
+
+        titulo =
+          "Ideas y consejos sobre " + producto;
+
+        descripcion =
+          "Si te interesa " +
+          producto +
+          ", guardá este contenido y seguí la cuenta para descubrir más ideas.";
+
+        keywords =
+          producto + ", inspiración, consejos, ideas, Pinterest";
+
+        cta =
+          "Seguinos para descubrir más.";
+
+      } else {
+
+        titulo =
+          "Inspiración y nuevas ideas sobre " + producto;
+
+        descripcion =
+          "Descubrí nuevas ideas, inspiración y contenido útil relacionado con " +
+          producto +
+          ".";
+
+        keywords =
+          producto + ", inspiración, tendencias, ideas, contenido";
+
+        cta =
+          "Guardá este Pin para verlo después.";
+
+      }
+
+      document.getElementById("titulo").textContent = titulo;
+      document.getElementById("descripcion").textContent = descripcion;
+      document.getElementById("keywords").textContent = keywords;
+      document.getElementById("cta").textContent = cta;
+
+      document.getElementById("visual").textContent =
+        "Crear una imagen vertical, limpia y profesional relacionada con " +
+        producto +
+        ", utilizando un título corto y llamativo.";
+
+      document.getElementById("resultado").style.display = "block";
+    }
+
+  </script>
+
+</body>
+  </html>
