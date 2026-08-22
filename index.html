@@ -197,95 +197,118 @@
 
     function generarContenido() {
 
-      const producto = document.getElementById("producto").value.trim();
-      const objetivo = document.getElementById("objetivo").value;
+  const producto = document.getElementById("producto").value.trim();
+  const objetivo = document.getElementById("objetivo").value;
 
-      if (!producto) {
-        alert("Primero escribí qué querés promocionar.");
-        return;
-      }
+  if (!producto) {
+    alert("Primero escribí qué querés promocionar.");
+    return;
+  }
 
-      let titulo = "";
-      let descripcion = "";
-      let keywords = "";
-      let cta = "";
+  let titulo = "";
+  let descripcion = "";
+  let keywords = "";
+  let cta = "";
+  let visual = "";
 
-      if (objetivo === "vender") {
+  if (objetivo === "vender") {
 
-        titulo = "Descubrí cómo empezar con " + producto;
+    titulo =
+      "Cómo empezar con " + producto + " y lograr resultados desde cero";
 
-        descripcion =
-          "Una forma simple y práctica de descubrir todo lo que " +
-          producto +
-          " puede ayudarte a conseguir. Conocé más y empezá hoy.";
+    descripcion =
+      "Descubrí una forma práctica de aprender sobre " +
+      producto +
+      ". Encontrá ideas, consejos y recursos útiles para empezar paso a paso, incluso si sos principiante. Guardá este Pin para consultarlo después.";
 
-        keywords =
-          producto + ", guía, ideas, recursos, aprender, consejos";
+    keywords =
+      producto +
+      ", ideas para principiantes, guía paso a paso, cómo empezar, tutorial, consejos, aprender, recursos, inspiración, Pinterest";
 
-        cta =
-          "Conocé más y descubrí cómo empezar.";
+    cta =
+      "Descubrí la guía completa y empezá hoy.";
 
-      } else if (objetivo === "trafico") {
+    visual =
+      "Crear un Pin vertical 2:3 de aspecto premium y profesional relacionado con " +
+      producto +
+      ". Mostrar el producto o resultado final de forma atractiva, con iluminación clara y natural, composición limpia, alto contraste, fondo elegante y un título corto que genere curiosidad.";
 
-        titulo =
-          "Todo lo que necesitás saber sobre " + producto;
+  } else if (objetivo === "trafico") {
 
-        descripcion =
-          "Encontrá ideas, consejos y recursos útiles relacionados con " +
-          producto +
-          ". Visitá el contenido completo para conocer todos los detalles.";
+    titulo =
+      "Todo lo que necesitás saber sobre " + producto;
 
-        keywords =
-          producto + ", información, consejos, ideas, guía";
+    descripcion =
+      "¿Querés aprender más sobre " +
+      producto +
+      "? Descubrí ideas prácticas, consejos y recursos que pueden ayudarte a avanzar paso a paso. Explorá el contenido completo y encontrá información útil para empezar.";
 
-        cta =
-          "Entrá y descubrí el contenido completo.";
+    keywords =
+      producto +
+      ", cómo hacerlo, guía, tutorial, ideas, consejos, información, recursos, paso a paso, aprender, inspiración";
 
-      } else if (objetivo === "seguidores") {
+    cta =
+      "Entrá y descubrí el contenido completo.";
 
-        titulo =
-          "Ideas y consejos sobre " + producto;
+    visual =
+      "Crear un Pin vertical 2:3 moderno y atractivo sobre " +
+      producto +
+      ". Utilizar una imagen principal clara y profesional, composición visual limpia, iluminación natural, texto grande y fácil de leer, y un elemento visual que genere curiosidad para incentivar el clic.";
 
-        descripcion =
-          "Si te interesa " +
-          producto +
-          ", guardá este contenido y seguí la cuenta para descubrir más ideas.";
+  } else if (objetivo === "seguidores") {
 
-        keywords =
-          producto + ", inspiración, consejos, ideas, Pinterest";
+    titulo =
+      "Ideas y consejos sobre " + producto + " que te van a servir";
 
-        cta =
-          "Seguinos para descubrir más.";
+    descripcion =
+      "Si te interesa " +
+      producto +
+      ", guardá este contenido para volver cuando lo necesites. Descubrí nuevas ideas, consejos prácticos e inspiración relacionada con este tema y seguí la cuenta para encontrar más contenido.";
 
-      } else {
+    keywords =
+      producto +
+      ", ideas, inspiración, consejos, tutoriales, tendencias, creatividad, aprendizaje, contenido útil, Pinterest";
 
-        titulo =
-          "Inspiración y nuevas ideas sobre " + producto;
+    cta =
+      "Seguinos para descubrir más ideas.";
 
-        descripcion =
-          "Descubrí nuevas ideas, inspiración y contenido útil relacionado con " +
-          producto +
-          ".";
+    visual =
+      "Crear un Pin vertical 2:3 visualmente atractivo sobre " +
+      producto +
+      ". Utilizar una fotografía realista y profesional, composición editorial, iluminación clara y natural, fondo limpio, título breve y llamativo y una estética que invite a guardar el Pin.";
 
-        keywords =
-          producto + ", inspiración, tendencias, ideas, contenido";
+  } else {
 
-        cta =
-          "Guardá este Pin para verlo después.";
+    titulo =
+      "Ideas, inspiración y consejos sobre " + producto;
 
-      }
+    descripcion =
+      "Descubrí nuevas ideas, inspiración y contenido útil relacionado con " +
+      producto +
+      ". Encontrá consejos prácticos y recursos que podés guardar para consultar cuando los necesites.";
 
-      document.getElementById("titulo").textContent = titulo;
-      document.getElementById("descripcion").textContent = descripcion;
-      document.getElementById("keywords").textContent = keywords;
-      document.getElementById("cta").textContent = cta;
+    keywords =
+      producto +
+      ", inspiración, ideas, consejos, tendencias, tutorial, aprendizaje, creatividad, recursos, contenido";
 
-      document.getElementById("visual").textContent =
-        "Crear una imagen vertical, limpia y profesional relacionada con " +
-        producto +
-        ", utilizando un título corto y llamativo.";
+    cta =
+      "Guardá este Pin para verlo después.";
 
-      document.getElementById("resultado").style.display = "block";
+    visual =
+      "Crear un Pin vertical 2:3 elegante y profesional relacionado con " +
+      producto +
+      ". Mostrar una imagen principal atractiva, composición limpia, iluminación clara y natural, estética premium, texto breve y fuerte y un diseño pensado para captar la atención rápidamente.";
+
+  }
+
+  document.getElementById("titulo").textContent = titulo;
+  document.getElementById("descripcion").textContent = descripcion;
+  document.getElementById("keywords").textContent = keywords;
+  document.getElementById("cta").textContent = cta;
+
+  document.getElementById("visual").textContent = visual;
+
+  document.getElementById("resultado").style.display = "block";
     }
 
   </script>
