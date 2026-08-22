@@ -24,7 +24,7 @@ const descripcion =
   `Encontrá ideas prácticas, consejos útiles y recursos para empezar ` +
   `de forma sencilla. Guardá este Pin y descubrí cómo aprovechar ${producto}.`;
 
-const palabrasClave = [
+
 const productoBase = producto
   .replace(/ebook\s+de\s+/i, "")
   .replace(/curso\s+de\s+/i, "")
