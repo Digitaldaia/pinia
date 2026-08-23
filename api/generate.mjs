@@ -15,154 +15,194 @@ export default async function handler(req, res) {
     }
 
     const objetivoFinal = objetivo || "Vender";
+    const objetivoTexto = objetivoFinal.toLowerCase();
 
-const objetivoTexto = objetivoFinal.toLowerCase();
-const productoBase = producto.trim();
+    // Nombre completo introducido por el usuario
+    const productoNombre = producto.trim();
 
-let titulo;
-let descripcion;
-let palabrasClave;
-let cta;
-let ideaVisual;
+    // Tema principal del producto, evitando repeticiones innecesarias
+    const productoBase = productoNombre
+      .replace(/^ebook\s+de\s+/i, "")
+      .replace(/^curso\s+de\s+/i, "")
+      .replace(/^gu[ií]a\s+de\s+/i, "")
+      .replace(/\s+para\s+principiantes/gi, "")
+      .trim();
 
-if (objetivoTexto.includes("vender")) {
+    let titulo;
+    let descripcion;
+    let palabrasClave;
+    let cta;
+    let ideaVisual;
 
-  titulo = `✨ ${productoBase}: descubrí por qué puede ser justo lo que necesitás`;
+    // =========================================================
+    // OBJETIVO: VENDER
+    // =========================================================
 
-  descripcion =
-    `Descubrí los beneficios y posibilidades de ${productoBase}. ` +
-    `Conocé cómo presentarlo de forma atractiva, despertá interés y convertí visitas en oportunidades de venta.`;
+    if (objetivoTexto.includes("vender")) {
+      titulo =
+        `✨ ${productoNombre}: descubrí por qué puede ser justo lo que necesitás`;
 
-  palabrasClave = [
-  productoBase,
-  "crochet para principiantes",
-  "aprender crochet desde cero",
-  "cómo empezar a tejer crochet",
-  "puntos básicos de crochet",
-  "proyectos fáciles de crochet",
-  "patrones de crochet fáciles",
-  "guía de crochet"
-];
+      descripcion =
+        `Descubrí los beneficios y posibilidades de ${productoNombre}. ` +
+        `Conocé cómo puede ayudarte, qué podés encontrar y por qué puede ser una opción ideal para empezar.`;
 
-  cta = "👉 Descubrí más y empezá hoy.";
+      palabrasClave = [
+        productoBase,
+        `${productoBase} para principiantes`,
+        `aprender ${productoBase} desde cero`,
+        `cómo empezar con ${productoBase}`,
+        `mejor ${productoBase}`,
+        `ideas de ${productoBase}`,
+        `guía de ${productoBase}`,
+        `comprar ${productoNombre}`
+      ];
 
-  ideaVisual =
-    `Crear un Pin vertical de alta conversión para vender ${productoBase}. ` +
-    `Mostrar claramente el producto, su principal beneficio y una propuesta visual atractiva. ` +
-    `Fotografía realista y profesional, iluminación clara y natural, composición premium, ` +
-    `alto contraste y texto corto que genere deseo de conocer más.`;
+      cta = "👉 Descubrí más y empezá hoy.";
 
-} else if (
-  objetivoTexto.includes("clic") ||
-  objetivoTexto.includes("tráfico") ||
-  objetivoTexto.includes("visita")
-) {
+      ideaVisual =
+        `Crear un Pin vertical de alta conversión para promocionar ${productoNombre}. ` +
+        `Mostrar claramente el producto y su principal beneficio. ` +
+        `Fotografía realista y profesional, iluminación clara y natural, composición premium, ` +
+        `alto contraste y texto visual corto que genere deseo y curiosidad.`;
+    }
 
-  titulo = `🔥 Descubrí todo lo que podés hacer con ${productoBase}`;
+    // =========================================================
+    // OBJETIVO: TRÁFICO / CLICS / VISITAS
+    // =========================================================
 
-  descripcion =
-    `¿Querés conocer más sobre ${productoBase}? ` +
-    `Descubrí ideas, información útil y recursos que pueden ayudarte a dar el siguiente paso.`;
+    else if (
+      objetivoTexto.includes("clic") ||
+      objetivoTexto.includes("tráfico") ||
+      objetivoTexto.includes("trafico") ||
+      objetivoTexto.includes("visita")
+    ) {
+      titulo =
+        `🔥 Descubrí todo lo que podés encontrar sobre ${productoBase}`;
 
-  palabrasClave = [
-    productoBase,
-    `información sobre ${productoBase}`,
-    `ideas de ${productoBase}`,
-    `cómo usar ${productoBase}`,
-    `guía de ${productoBase}`,
-    `recursos de ${productoBase}`,
-    `aprender sobre ${productoBase}`
-  ];
+      descripcion =
+        `¿Querés conocer más sobre ${productoBase}? ` +
+        `Descubrí información útil, ideas y recursos que pueden ayudarte a dar el siguiente paso. ` +
+        `Entrá para conocer el contenido completo.`;
 
-  cta = "👉 Entrá y descubrí más.";
+      palabrasClave = [
+        productoBase,
+        `${productoBase} para principiantes`,
+        `aprender ${productoBase} desde cero`,
+        `cómo empezar con ${productoBase}`,
+        `ideas de ${productoBase}`,
+        `guía de ${productoBase}`,
+        `recursos de ${productoBase}`,
+        `tutorial de ${productoBase}`,
+        `consejos de ${productoBase}`
+      ];
 
-  ideaVisual =
-    `Crear un Pin vertical diseñado para generar clics sobre ${productoBase}. ` +
-    `Usar una imagen atractiva que despierte curiosidad, título corto y potente, ` +
-    `composición limpia, fotografía realista, iluminación clara y natural y un elemento visual ` +
-    `que invite a conocer el contenido completo.`;
+      cta = "👉 Entrá y descubrí más.";
 
-} else if (
-  objetivoTexto.includes("segu") ||
-  objetivoTexto.includes("comunidad")
-) {
+      ideaVisual =
+        `Crear un Pin vertical diseñado específicamente para generar clics en Pinterest sobre ${productoBase}. ` +
+        `Usar una imagen atractiva que despierte curiosidad, un título corto y potente, ` +
+        `composición limpia, fotografía realista, iluminación clara y natural y un elemento visual ` +
+        `que invite a conocer el contenido completo.`;
+    }
 
-  titulo = `💡 Todo lo que necesitás saber sobre ${productoBase}`;
+    // =========================================================
+    // OBJETIVO: SEGUIDORES / COMUNIDAD
+    // =========================================================
 
-  descripcion =
-    `Descubrí contenido útil sobre ${productoBase}, aprendé algo nuevo y encontrá ideas ` +
-    `que podés aplicar fácilmente. Seguí a PINIA para descubrir más contenido.`;
+    else if (
+      objetivoTexto.includes("segu") ||
+      objetivoTexto.includes("comunidad")
+    ) {
+      titulo =
+        `💡 Todo lo que necesitás saber sobre ${productoBase}`;
 
-  palabrasClave = [
-    productoBase,
-    `aprender ${productoBase}`,
-    `ideas de ${productoBase}`,
-    `consejos de ${productoBase}`,
-    `tutorial de ${productoBase}`,
-    `${productoBase} para principiantes`,
-    `contenido de ${productoBase}`
-  ];
+      descripcion =
+        `Descubrí contenido útil sobre ${productoBase}, aprendé algo nuevo y encontrá ideas ` +
+        `que podés aplicar fácilmente. SeguÍ a PINIA para descubrir más contenido.`;
 
-  cta = "👉 Seguinos para descubrir más ideas.";
+      palabrasClave = [
+        productoBase,
+        `aprender ${productoBase}`,
+        `ideas de ${productoBase}`,
+        `consejos de ${productoBase}`,
+        `tutorial de ${productoBase}`,
+        `${productoBase} para principiantes`,
+        `contenido de ${productoBase}`
+      ];
 
-  ideaVisual =
-    `Crear un Pin vertical pensado para atraer nuevos seguidores interesados en ${productoBase}. ` +
-    `Diseño visual profesional, fotografía realista, iluminación clara y natural, ` +
-    `título llamativo, estética premium y sensación de contenido útil y confiable.`;
+      cta = "👉 Seguinos para descubrir más ideas.";
 
-} else if (
-  objetivoTexto.includes("guardar") ||
-  objetivoTexto.includes("guardado")
-) {
+      ideaVisual =
+        `Crear un Pin vertical pensado para atraer nuevos seguidores interesados en ${productoBase}. ` +
+        `Diseño visual profesional, fotografía realista, iluminación clara y natural, ` +
+        `título llamativo, estética premium y sensación de contenido útil y confiable.`;
+    }
 
-  titulo = `📌 Guardá esta guía sobre ${productoBase}`;
+    // =========================================================
+    // OBJETIVO: GUARDADOS
+    // =========================================================
 
-  descripcion =
-    `Una guía práctica con ideas y consejos útiles sobre ${productoBase}. ` +
-    `Guardá este Pin para volver a consultarlo cuando lo necesites.`;
+    else if (
+      objetivoTexto.includes("guardar") ||
+      objetivoTexto.includes("guardado")
+    ) {
+      titulo =
+        `📌 Guardá esta guía sobre ${productoBase}`;
 
-  palabrasClave = [
-    productoBase,
-    `guía de ${productoBase}`,
-    `consejos de ${productoBase}`,
-    `ideas de ${productoBase}`,
-    `tutorial de ${productoBase}`,
-    `aprender ${productoBase}`,
-    `${productoBase} paso a paso`
-  ];
+      descripcion =
+        `Una guía práctica con ideas y consejos útiles sobre ${productoBase}. ` +
+        `Guardá este Pin para volver a consultarlo cuando lo necesites.`;
 
-  cta = "📌 Guardá este Pin para verlo después.";
+      palabrasClave = [
+        productoBase,
+        `guía de ${productoBase}`,
+        `consejos de ${productoBase}`,
+        `ideas de ${productoBase}`,
+        `tutorial de ${productoBase}`,
+        `aprender ${productoBase}`,
+        `${productoBase} paso a paso`
+      ];
 
-  ideaVisual =
-    `Crear un Pin vertical diseñado para generar guardados sobre ${productoBase}. ` +
-    `Mostrar información útil de manera visual, fotografía realista, composición limpia, ` +
-    `iluminación clara y natural, estética premium y un título que haga pensar "esto lo quiero guardar".`;
+      cta = "📌 Guardá este Pin para verlo después.";
 
-} else {
+      ideaVisual =
+        `Crear un Pin vertical diseñado para generar guardados sobre ${productoBase}. ` +
+        `Mostrar información útil de manera visual, fotografía realista, composición limpia, ` +
+        `iluminación clara y natural, estética premium y un título que haga pensar ` +
+        `"esto lo quiero guardar".`;
+    }
 
-  titulo = `✨ ${productoBase}: ideas, consejos y guía para empezar`;
+    // =========================================================
+    // OBJETIVO POR DEFECTO
+    // =========================================================
 
-  descripcion =
-    `Descubrí todo lo que necesitás saber sobre ${productoBase}. ` +
-    `Encontrá ideas prácticas, consejos útiles y recursos para empezar de forma sencilla.`;
+    else {
+      titulo =
+        `✨ ${productoNombre}: ideas, consejos y guía para empezar`;
 
-  palabrasClave = [
-    productoBase,
-    `${productoBase} para principiantes`,
-    `aprender ${productoBase}`,
-    `cómo empezar con ${productoBase}`,
-    `ideas de ${productoBase}`,
-    `guía de ${productoBase}`,
-    `consejos de ${productoBase}`
-  ];
+      descripcion =
+        `Descubrí todo lo que necesitás saber sobre ${productoBase}. ` +
+        `Encontrá ideas prácticas, consejos útiles y recursos para empezar de forma sencilla.`;
 
-  cta = "👉 Descubrí la guía completa y empezá hoy.";
+      palabrasClave = [
+        productoBase,
+        `${productoBase} para principiantes`,
+        `aprender ${productoBase} desde cero`,
+        `cómo empezar con ${productoBase}`,
+        `ideas de ${productoBase}`,
+        `guía de ${productoBase}`,
+        `consejos de ${productoBase}`,
+        `proyectos de ${productoBase}`
+      ];
 
-  ideaVisual =
-    `Crear un Pin vertical de alta conversión para Pinterest sobre ${productoBase}. ` +
-    `Usar una fotografía realista y profesional, composición limpia, iluminación clara y natural, ` +
-    `alto contraste, estética premium y un título visual corto que genere curiosidad.`;
-}
+      cta = "👉 Descubrí la guía completa y empezá hoy.";
+
+      ideaVisual =
+        `Crear un Pin vertical de alta conversión para Pinterest sobre ${productoBase}. ` +
+        `Usar una fotografía realista y profesional, composición limpia, iluminación clara y natural, ` +
+        `alto contraste, estética premium y un título visual corto que genere curiosidad.`;
+    }
+
     return res.status(200).json({
       objetivo: objetivoFinal,
       titulo,
