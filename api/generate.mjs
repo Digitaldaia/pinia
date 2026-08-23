@@ -34,15 +34,15 @@ if (objetivoTexto.includes("vender")) {
     `Conocé cómo presentarlo de forma atractiva, despertá interés y convertí visitas en oportunidades de venta.`;
 
   palabrasClave = [
-    productoBase,
-    `comprar ${productoBase}`,
-    `${productoBase} recomendado`,
-    `beneficios de ${productoBase}`,
-    `mejor ${productoBase}`,
-    `ideas con ${productoBase}`,
-    `${productoBase} para principiantes`,
-    `guía de ${productoBase}`
-  ];
+  productoBase,
+  "crochet para principiantes",
+  "aprender crochet desde cero",
+  "cómo empezar a tejer crochet",
+  "puntos básicos de crochet",
+  "proyectos fáciles de crochet",
+  "patrones de crochet fáciles",
+  "guía de crochet"
+];
 
   cta = "👉 Descubrí más y empezá hoy.";
 
