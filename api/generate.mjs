@@ -77,12 +77,12 @@ export default async function handler(req, res) {
       objetivoTexto.includes("visita")
     ) {
       titulo =
-        `🔥 Descubrí todo lo que podés encontrar sobre ${productoBase}`;
+  `🧶 ${productoBase} para principiantes: aprendé desde cero paso a paso`;
 
-      descripcion =
-        `¿Querés conocer más sobre ${productoBase}? ` +
-        `Descubrí información útil, ideas y recursos que pueden ayudarte a dar el siguiente paso. ` +
-        `Entrá para conocer el contenido completo.`;
+descripcion =
+  `¿Querés aprender ${productoBase} desde cero? ` +
+  `Descubrí una guía pensada para principiantes, con puntos básicos, ideas y proyectos fáciles para empezar. ` +
+  `Entrá y conocé el contenido completo.`;
 
       palabrasClave = [
         productoBase,
