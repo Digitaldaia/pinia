@@ -17,12 +17,7 @@ export default async function handler(req, res) {
     const objetivoFinal = objetivo || "Vender";
 
 const objetivoTexto = objetivoFinal.toLowerCase();
-const productoBase = producto
-  .replace(/ebook\s+de\s+/i, "")
-  .replace(/curso\s+de\s+/i, "")
-  .replace(/guía\s+de\s+/i, "")
-  .replace(/para\s+principiantes/gi, "")
-  .trim();
+const productoBase = producto.trim();
 
 let titulo;
 let descripcion;
